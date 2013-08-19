@@ -15,6 +15,7 @@ gem 'activerecord'
 
 gem 'rake'
 
+gem 'twitter', git: 'https://github.com/sferik/twitter'
 gem 'shotgun'
 
 group :test do
