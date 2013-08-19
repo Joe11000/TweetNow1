@@ -3,8 +3,8 @@ class TwitterUser < ActiveRecord::Base
  
 
   def fetch_tweets!
-    if !self.stale?
-      self.tweets
+    if !self.stale? && !self.tweets.empty?
+      return self.tweets
     else
       self.touch
       @tweets = twitter_client.user_timeline(self.username,{count:15})
@@ -13,6 +13,7 @@ class TwitterUser < ActiveRecord::Base
         self.tweets << Tweet.create(body:tweet.text,tweet_id:tweet.id)
       end
     end
+    self.tweets
   end
 
   def stale?

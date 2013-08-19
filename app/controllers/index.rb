@@ -19,21 +19,13 @@ get '/:username' do
   end
 
   @tweets = @user.tweets
-  erb :show_tweets
+  erb :_tweet_list_partial
 end
 
-post '/create' do
-  if TwitterUser.find_by_username(params[:username])
-    redirect to "/#{params[:username]}"
+post '/tweets' do
+  if request.xhr?
+    @user = TwitterUser.find_or_create_by(username:params[:username])
+    @tweets = @user.fetch_tweets!
+    erb :_tweet_list_partial, layout: false
   end
-  @client.users(params[:username])
-
-  @user = TwitterUser.create(username:params[:username])
-
-  @tweets = @client.user_timeline(params[:username],{count:15})
-
-  @tweets.each do |tweet|
-    @user.tweets << Tweet.create(body:tweet.text,tweet_id:tweet.id)
-  end
-  redirect to "/#{params[:username]}"
 end
