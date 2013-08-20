@@ -1,8 +1,9 @@
-<div class="container">
-  <h1>BAMF TWITTER ALT</h1>
-  <ul>
-  <% @users.each do |user| %>
-    <li><a href='/<%= user.username %>'><%= user.username %></a></li>
-  <% end %>
-  </ul>
-</div>
+<form id='sending_tweet_form_id' action="/tweet" method="post">
+  <input type="text" name="tweet_body" placeholder="Inset Tweet Here">
+  <input type="submit" value"Tweet It!">
+</form>
+
+
+  <h1>Tweet For LiveItUp227</h1>
+
+  <div id='tweets' />

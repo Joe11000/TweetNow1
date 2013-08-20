@@ -18,8 +18,6 @@ class TwitterUser < ActiveRecord::Base
 
   def stale?
     age = (Time.now - self.updated_at)/ 60
-    age > 15
+    age > 15 # minutes
   end
-
-
 end

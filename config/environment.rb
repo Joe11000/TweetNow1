@@ -34,3 +34,9 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
+
+  YOUR_APP_CONSUMER_KEY     = '2faArhuLdQCVzl0kas6x5A'
+  YOUR_APP_CONSUMER_SECRET  = 'lFTFaw4eloWexdvelhOUib6JRRf91eXxua4lWo7pM'   
+  A_USER_ACCESS_TOKEN       = '1327618981-ejXWtXoTevjw1dcwsdCd372fAdkRvgVOXrmTM3z'
+  A_USER_ACCESS_SECRET      = 'bDKtAEJ3UmfhZ0wf1eu0MlDT1d53dAt9jjVRXa6w'
+  
