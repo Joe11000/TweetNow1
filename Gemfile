@@ -19,6 +19,7 @@ gem 'twitter', git: 'https://github.com/sferik/twitter'
 gem 'shotgun'
 gem 'debugger'
 
+
 group :test do
   gem 'faker'
   gem 'rspec'
